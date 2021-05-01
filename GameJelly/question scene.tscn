@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://question scene.gd" type="Script" id=1]
+[ext_resource path="res://font.tres" type="DynamicFont" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Question" type="RichTextLabel" parent="."]
+margin_left = 63.0
+margin_top = 25.0
+margin_right = 596.0
+margin_bottom = 186.0
+custom_fonts/normal_font = ExtResource( 2 )
+text = "Question here"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[node name="count" type="RichTextLabel" parent="."]
+margin_left = 69.0
+margin_top = 168.0
+margin_right = 227.0
+margin_bottom = 333.0
+custom_fonts/normal_font = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -284.0
+margin_top = -172.0
+items = [ "Player 1", null, false, "Player 2", null, false, "Player 3", null, false, "Player 4", null, false ]
+select_mode = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
